@@ -1,183 +1,247 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
-<title>ArcGIS Online Items</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <title>Street Fault Notification</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/3.25/dijit/themes/claro/claro.css" />
+  <link rel="stylesheet" href="https://js.arcgis.com/3.25/esri/css/esri.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
 
-<link rel="stylesheet" href="https://js.arcgis.com/3.30compact/dijit/themes/claro/claro.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <style>
-  html, body {
-    font-family: Lucida Sans, Lucida Grande, Arial !important;
-    font-size: 14px;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-  }
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      margin: 0;
+      font-family: "Open Sans";
+    }
 
-  .esri-item-gallery .esri-item-container {
-    float: left;
-    text-align: center;
-    padding: 10px;
-    width: 204px;
-    display: inline-block;
-  }
+    #leftPane {
+      width: 20%;
+      margin: 0;
+      border: none;
+    }
 
-  .esri-item-gallery .esri-image {
-    width: 200px;
-    height: 133px;
-    border: 2px solid gray;
-    border-radius: 5px;
-  }
+    #map {
+      padding: 0;
+    }
 
-  .esri-item-gallery .esri-null-image {
-    line-height: 133px;
-    text-align: center;
-    color: #999999;
-  }
+    .nav {
+      padding: 5px 10px;
+      border: solid 1px grey;
+    }
 
-  .esri-item-gallery .esri-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    #header {
+      text-align: center;
+      height: 60px;
+      border-bottom: solid 1px #ccc;
+    }
+  </style>
 
-  .esri-item-gallery .esri-null-title {
-    color: #999999;
-  }
+  <script src="https://js.arcgis.com/3.25/"></script>
+  <script>
+	var lat,lng;
+	function getLocation() 
+	{
+		if (navigator.geolocation) 
+		{
+			navigator.geolocation.getCurrentPosition(setPosition);
+		} 
+		else 
+		{
+			console.log("Geolocation is not supported by this browser.");
+		}
+	}
 
-  .action {
-    color: blue;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-</style>
+	function setPosition(position) 
+	{
+		lat=position.coords.latitude;
+		lng=position.coords.longitude;
+		console.log("lat:"+lat);
+		console.log("log:"+lng);
+	}
+	
+    require([
+      "dojo/ready", "dojo/on", "dojo/dom", "dijit/registry", "dojo/dom-construct", "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "esri/map", "esri/arcgis/utils", "esri/domUtils", "esri/dijit/Popup", "esri/layers/FeatureLayer", "esri/InfoTemplate"
+    ], function (
+      ready, on, dom, registry, domConstruct, parser, BorderContainer, ContentPane, Map, arcgisUtils, domUtils, Popup, FeatureLayer, InfoTemplate
+    ) {
+        ready(function () {
 
-<script src="https://js.arcgis.com/3.30compact/"></script>
-<script>
-  require([
-    "esri/arcgis/Portal", "esri/arcgis/OAuthInfo", "esri/IdentityManager",
-    "dojo/dom-style", "dojo/dom-attr", "dojo/dom", "dojo/on", "dojo/_base/array",
-    "dojo/domReady!"
-  ], function (arcgisPortal, OAuthInfo, esriId,
-    domStyle, domAttr, dom, on, arrayUtils){
-    var info = new OAuthInfo({
-      appId: "Iy8Lh1aFubiXf0Yk",
-      // Uncomment the next line and update if using your own portal
-      //portalUrl: "https://<host>:<port>/arcgis"
-      // Uncomment the next line to prevent the user's signed in state from being shared
-      // with other apps on the same domain with the same authNamespace value.
-      //authNamespace: "portal_oauth_popup",
-      popup: true
-    });
-    esriId.registerOAuthInfos([info]);
+          parser.parse();
 
-    esriId.checkSignInStatus(info.portalUrl + "/sharing").then(
-      function (){
-        displayItems();
-      }
-    ).otherwise(
-      function (){
-        // Anonymous view
-        domStyle.set("anonymousPanel", "display", "block");
-        domStyle.set("personalizedPanel", "display", "none");
-      }
-    );
+          //setup event handlers for the next/previous buttons
+          on(dom.byId("previous"), "click", selectPrevious);
+          on(dom.byId("next"), "click", selectNext);
 
-    on(dom.byId("sign-in"), "click", function (){
-      console.log("click", arguments);
-      // user will be shown the OAuth Sign In page
-      esriId.getCredential(info.portalUrl + "/sharing", {
-          oAuthPopupConfirmation: false
-        }
-      ).then(function (){
-          displayItems();
+          //Create a map based on an ArcGIS Online web map id 
+                  arcgisUtils.createMap("fd288e1aff2745178e55353caf34d29b", "map")
+                    .then(function(response) {
+                      window.map = response.map;
+                      //set the popup's popupWindow property to false. This prevents the popup from displaying
+                      map.infoWindow.set("popupWindow", false);
+                      initializeSidebar(window.map);
+                    }, function(error) {
+                      console.log("Map creation failed: ", dojo.toJson(error));
+                    });
+
+          map.on('load', initializeSidebar());
+
+          function initializeSidebar() {
+            //alert("in side bar");
+            var popup = map.infoWindow;
+
+            //when the selection changes update the side panel to display the popup info for the 
+            //currently selected feature. 
+            popup.on("selection-change", function () {
+              displayPopupContent(popup.getSelectedFeature());
+            });
+
+            //when the selection is cleared remove the popup content from the side panel. 
+            popup.on("clear-features", function () {
+              //dom.byId replaces dojo.byId
+//              dom.byId("featureCount").innerHTML = "Click to select feature";
+              //registry.byId replaces dijit.byId
+              registry.byId("leftPane").set("content", "");
+//              domUtils.hide(dom.byId("pager"));
+            });
+
+            //When features are associated with the map's info window update the sidebar with the new content. 
+            popup.on("set-features", function () {
+//              displayPopupContent(popup.getSelectedFeature());
+              if (popup.features.length > 1) {
+//                dom.byId("featureCount").innerHTML = popup.features.length + " features selected";
+                //enable navigation if more than one feature is selected 
+//                domUtils.show(dom.byId("pager"))
+              } else {
+//                dom.byId("featureCount").innerHTML = popup.features.length + " feature selected";
+//                domUtils.hide(dom.byId("pager"));
+              }
+            });
+			
+			getLocation();
+          }
+
+          function displayPopupContent(feature) {
+            if (feature) {
+              var content = feature.getContent();
+              registry.byId("leftPane").set("content", content);
+//			  alert(content.innerHTML);
+				var popup_html=content.innerHTML;
+				var frm123_html="";
+				var frm123_url="";
+				var inc_1=9;
+				for (var i = 0; i < popup_html.length; i++) 
+				{
+//				  console.log(str.charAt(i));
+//console.log(popup_html.substring(i,inc_1+i));
+					if (popup_html.substring(i,inc_1+i)=='<a href="')
+					{
+						frm123_html='<a href="';
+						i=i+inc_1;
+						for (;i < popup_html.length; i++) 
+						{
+							if(popup_html.charAt(i)=='"')
+							{
+								break;
+							}
+							frm123_html=frm123_html+popup_html.charAt(i);
+							frm123_url=frm123_url+popup_html.charAt(i);
+						}
+						frm123_html=frm123_html.replace(/amp;/g, '')
+						frm123_url=frm123_url.replace(/amp;/g, '')
+						frm123_html=frm123_html+"\" target=\"survey123frm\" onclick=\"document.getElementById('survey123div').innerHTML='';\"> Open form </a>";
+					}
+				}
+				if((frm123_html.trim()).length>0)
+				{
+//					document.getElementById("survey123div").innerHTML=frm123_html;
+					document.getElementById("survey123div").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("survey123div").innerHTML="Street light already reported to Network. <br>Please select another street light to report on.";
+				}
+				document.getElementById("survey123frm").src="blank.html";
+				document.getElementById("survey123frm").src=frm123_url;
+              registry.byId("leftPane").set("content", "");
+            }
+          }
+
+          function selectPrevious() {
+            map.infoWindow.selectPrevious();
+          }
+
+          function selectNext() {
+            map.infoWindow.selectNext();
+          }
+		  
+			
         });
-    });
+      });
 
-    on(dom.byId("sign-out"), "click", function (){
-      esriId.destroyCredentials();
-      window.location.reload();
-    });
+	function refresh_map() 
+	{
+		setInterval(function()
+			{ 
+	//			map.getLayer("a1ed4a71a6044abe8d81b44fc4d14f0c").refresh(); 
+			}, 10000);  // refresh every 10 seconds
+	}	
 
-    function displayItems(){
-      new arcgisPortal.Portal(info.portalUrl).signIn().then(
-        function (portalUser){
-          console.log("Signed in to the portal: ", portalUser);
+ </script>
 
-          domAttr.set("userId", "innerHTML", portalUser.fullName);
-          domStyle.set("anonymousPanel", "display", "none");
-          domStyle.set("personalizedPanel", "display", "block");
-
-          queryPortal(portalUser);
-        }
-      ).otherwise(
-        function (error){
-          console.log("Error occurred while signing in: ", error);
-        }
-      );
-    }
-
-    function queryPortal(portalUser){
-      var portal = portalUser.portal;
-
-      //See list of valid item types here:  http://www.arcgis.com/apidocs/rest/index.html?itemtypes.html
-      //See search reference here:  http://www.arcgis.com/apidocs/rest/index.html?searchreference.html
-      var queryParams = {
-        q: "owner:" + portalUser.username,
-        sortField: "numViews",
-        sortOrder: "desc",
-        num: 2000
-      };
-
-      portal.queryItems(queryParams).then(createGallery);
-    }
-
-    function createGallery(items){
-      var htmlFragment = "";
-      arrayUtils.forEach(items.results, function (item){
-        
-        //if (item.id == "ccc24ca94db54721ac5e01b22427b5b1") {          
-                
-        htmlFragment += (
-        "<div class=\"esri-item-container\">" +
-        (
-          item.thumbnailUrl ?
-          "<div class=\"esri-image\" style=\"background-image:url(" + item.thumbnailUrl + ");\"></div>" :
-            "<div class=\"esri-image esri-null-image\">Thumbnail not available</div>"
-        ) +
-        (
-          item.id ?
-          "<div class=\"esri-title\">" + (item.id || "") + "</div>" :
-            "<div class=\"esri-title esri-null-title\">Title not available</div>"
-        ) +
-
-        "</div>"
-        );
-       
-       // }
-      });  
-      dom.byId("itemGallery").innerHTML =htmlFragment ;
-      }
-   });
-</script>
+ <style>
+.embed-container {position: relative; width:70%; min-width:400px; height:30%; min-height:400px} 
+.embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}
+</style>
+ 
 </head>
 
-<body class="claro">
-
-  <div id="anonymousPanel" style="display: none; padding: 5px; text-align: center;">
-    <span id="sign-in" class="action">Sign In</span> and view your ArcGIS Online items.
+<body class="claro" style="font-family:verdana">
+  <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false" style="width:100%; height:700px;">
+    <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" style="width: 30%;height:100%;"></div>
+    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false" region="center" >
+      <div id="leftPane" style="display:none;" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+      <div id="header" style="display:none;" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+        <div id="featureCount" style="display:none;" style="margin-bottom:5px;">Click to select feature</div>
+        <div id="pager" style="display:none;">
+          <a href='javascript:void(0);' id="previous" class='nav' style="text-decoration: none;">
+            &lt; Prev
+          </a> &nbsp;
+          <a href='javascript:void(0);' id="next" class='nav' style="text-decoration: none;">
+            Next &gt;
+          </a>
+        </div>
+      </div>
+		  <div id="survey123div" style="font-size:13px;">
+			Select faulty street light from the MAP..
+		  </div>
+			<iframe style="width:90%;min-width:400px; height:100%;" frameborder="0" name="survey123frm" id="survey123frm" src="blank.html">
+			</iframe>
+    </div>
   </div>
-
-  <div id="personalizedPanel" style="display: none; padding: 5px; text-align: center;">
-    Welcome <span id="userId" style="font-weight: bold;"></span>
-     - 
-    <span id="sign-out" class="action">Sign Out</span>
-  </div>
-  
-  <div id="itemGallery" class="esri-item-gallery" style="width: 100%;"></div>
-  
-</body>
-</html>
+<div style="font-size:10px;">
+	Map will auto-refresh every 1 min...
+	<div>
+	<font color="red">RED</font>: Street light is reported to Network<br>
+	<font color="green">GREEN</font>: Street light in working status
+	</div>
+</div>
+<div style="font-size:13px;">
+	Currently, only two councils (Parramatta & Camden) are used for this demo.
+</div>
+<br>
+<br>
+<div style="font-size:13px;">
+	This functionality is achieved using ArcGIS and Survey123 form. ArcGIS map is using overlaying FeatureLayers (Street light map and Survey123 result map) for displaying the Street light in EE network and reported fault. 
+</div>
  
+</body>
+
+</html>
