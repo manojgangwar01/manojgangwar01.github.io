@@ -85,7 +85,7 @@
                     .then(function(response) {
                       window.map = response.map;
                       //set the popup's popupWindow property to false. This prevents the popup from displaying
-                      map.infoWindow.set("popupWindow", false);
+                      map.infoWindow.set("popupWindow", true);
                       initializeSidebar(window.map);
                     }, function(error) {
                       console.log("Map creation failed: ", dojo.toJson(error));
