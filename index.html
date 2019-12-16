@@ -137,12 +137,22 @@
     function createGallery(items){
       var htmlFragment = "";
       arrayUtils.forEach(items.results, function (item){
+        htmlFragment += (
+        "<div class=\"esri-item-container\">" +
+        (
+          item.thumbnailUrl ?
+          "<div class=\"esri-image\" style=\"background-image:url(" + item.thumbnailUrl + ");\"></div>" :
+            "<div class=\"esri-image esri-null-image\">Thumbnail not available</div>"
+        ) +
+        (
+          item.id ?
+          "<div class=\"esri-title\">" + (item.id || "") + "</div>" :
+            "<div class=\"esri-title esri-null-title\">Title not available</div>"
+        ) +
+
+        "</div>"
+        );
        
-       if (item.id == "ccc24ca94db54721ac5e01b22427b5b1") {
-        htmlFragment = "Map Data Comes hurray";
-       } else {
-         
-       }   
 
       });  
       dom.byId("itemGallery").innerHTML =htmlFragment ;
