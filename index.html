@@ -137,6 +137,9 @@
     function createGallery(items){
       var htmlFragment = "";
       arrayUtils.forEach(items.results, function (item){
+        
+        if (item.id == "ccc24ca94db54721ac5e01b22427b5b1") {          
+                
         htmlFragment += (
         "<div class=\"esri-item-container\">" +
         (
@@ -153,7 +156,7 @@
         "</div>"
         );
        
-
+        }
       });  
       dom.byId("itemGallery").innerHTML =htmlFragment ;
       }
