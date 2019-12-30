@@ -1,4 +1,6 @@
-///////////////////////////////////////////////////////////////////////////
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+///////////////////////////////////////////////////////////////////////////
 // Copyright © Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
@@ -230,7 +232,8 @@ var ie = (function() {
 
   function setLocale(){
     if(window.queryObject.locale){
-      dojoConfig.locale = window.queryObject.locale.toLowerCase();
+      var locale = window.queryObject.locale.toLowerCase();
+      dojoConfig.locale = ['hi'].indexOf(locale) >= 0 ? 'en' : locale;
       window._setRTL(dojoConfig.locale);
       return;
     }
@@ -259,6 +262,7 @@ var ie = (function() {
     }
 
     dojoConfig.locale = dojoConfig.locale.toLowerCase();
+    dojoConfig.locale = ['hi'].indexOf(dojoConfig.locale) >= 0 ? 'en' : dojoConfig.locale;
     window._setRTL(dojoConfig.locale);
   }
 })();

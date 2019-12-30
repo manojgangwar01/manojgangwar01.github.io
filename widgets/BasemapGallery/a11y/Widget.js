@@ -1,53 +1,5 @@
-///////////////////////////////////////////////////////////////////////////
-// Copyright © Esri. All Rights Reserved.
-//
-// Licensed under the Apache License Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-///////////////////////////////////////////////////////////////////////////
-define([
-  'dojo/_base/lang',
-  'dojo/_base/html',
-  "dojo/query",
-  'dojo/on',
-  'dojo/keys',
-  'dojo/_base/array',
-  'jimu/utils'
-],
-  function (lang, html, query, on, keys, array, jimuUtils) {
-    var mo = {};
-    mo.a11y_initGalleryNodesAttrs = function () {
-      var galleryNodes = query('.esriBasemapGalleryNode', this.domNode);
-      if(galleryNodes.length){
-        array.forEach(galleryNodes, function(node) {
-          var imgA = query('a', node)[0];
-          html.setAttr(imgA, 'tabindex', '-1');
-
-          var imgLabel = query('span', node)[0];
-          html.setAttr(node, 'aria-label', imgLabel.innerHTML);
-          html.setAttr(node, 'tabindex', '0');
-          html.setAttr(node, 'role', 'link');
-          on(node, "keydown", lang.hitch(this, function(evt){
-            if(evt.keyCode === keys.ENTER){
-              imgA.click();
-            }
-          }));
-        });
-        jimuUtils.initFirstFocusNode(this.domNode, galleryNodes[0]);
-        jimuUtils.initLastFocusNode(this.domNode, galleryNodes[galleryNodes.length - 1]);
-        this.openAtStartAysn = true;
-        if(jimuUtils.isAutoFocusFirstNodeWidget(this)){
-          galleryNodes[0].focus();
-        }
-      }
-    };
-    return mo;
-  });
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define("dojo/_base/lang dojo/_base/html dojo/query dojo/on dojo/keys dojo/_base/array jimu/utils".split(" "),function(f,c,d,g,h,e,b){return{a11y_initGalleryNodesAttrs:function(){var a=d(".esriBasemapGalleryNode",this.domNode);a.length&&(e.forEach(a,function(a){var b=d("a",a)[0];c.setAttr(b,"tabindex","-1");var e=d("span",a)[0];c.setAttr(a,"aria-label",e.innerHTML);c.setAttr(a,"tabindex","0");c.setAttr(a,"role","link");g(a,"keydown",f.hitch(this,function(a){a.keyCode===h.ENTER&&b.click()}))}),b.initFirstFocusNode(this.domNode,
+a[0]),b.initLastFocusNode(this.domNode,a[a.length-1]),this.openAtStartAysn=!0,b.isAutoFocusFirstNodeWidget(this)&&a[0].focus())}}});
