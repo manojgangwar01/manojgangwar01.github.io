@@ -507,5 +507,11 @@
     "settings": {}
   },
   "logoLink": "http://",
-  "appItemId": "5334d714999f4ea8ab8613439e3ab56c"
+  "appItemId": "5334d714999f4ea8ab8613439e3ab56c",
+  "httpProxy": {
+    "useProxy": true,
+    "alwaysUseProxy": false,
+    "url": "",
+    "rules": []
+  }
 }
