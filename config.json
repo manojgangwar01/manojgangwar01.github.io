@@ -28,37 +28,12 @@
     "148.195.183.241:8080",
     "148.195.183.241:8080"
   ],
-  "title": "<div class=\"attribute-custom-style\"><font face=\"Arial\">Endeavour Energy Network</font></div>",
-  "subtitle": "<div class=\"attribute-custom-style\"><br /></div>",
-  "keepAppState": true,
-  "logo": "https://endeavour.maps.arcgis.com/sharing/rest/content/items/b03edc07a23745b7ad967253fa81ba92/resources/inConfig/4272965567225364.jpeg?token=Xssm2_6TuN38r0BdKz3KdKxF2Vevl3yMRufiP9fIjZibME0TcYyq9Q2Lh7isiF0DbqPVj2ifKaVf26YUJnuyAcf_j32K7xhRt1kSdd8LFePyPYq3ir0iGuXJd8I9v0dwzePMU88ZJmg2Si_pUveg45hKInf5JCAqhrVA7q07yH3Cx508xC9AheONpPeGqOL8wyjmsKRnEaOgQSrHRRgAZHhzLq2_slpIsD3IC-MQbsY.",
+  "title": "Endeavour Energy Network",
+  "subtitle": "",
+  "keepAppState": false,
+  "logo": "https://endeavour.maps.arcgis.com/sharing/rest/content/items/5334d714999f4ea8ab8613439e3ab56c/resources/inConfig/7548993931864294.png?token=O3Y8-HcpFKfc4uOaLkKPs1aqRPAzXOPxKWB4fav3XT2xrD1phcIgemeQtHnWByj1qJsj3dk6F1yS6bIYZZtlTkcNLyvllQPAIDeeni3GkVYuspbDrZftS1tAM5H1JTbf3aNs1QnethTD8jnpBjraRFPCvP2TzwFdAkDwwdRWB8WI-EJHGaAA7XruahiAalZCV7DkVxBLvYMeSujYXZE6S8RAA3z0uBamkgjMIn1OAhM.",
   "geometryService": "https://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
-  "links": [
-    {
-      "label": "ASP Portal",
-      "url": "https://www.endeavourenergy.com.au/asp/webengine/au/com/ee/asp/login/Login"
-    },
-    {
-      "label": "Standards",
-      "url": "https://www.endeavourenergy.com.au/asp/webengine/au/com/ee/asp/Standards/Standards"
-    },
-    {
-      "label": "Approved Materials",
-      "url": "https://www.endeavourenergy.com.au/asp/webengine/au/com/ee/asp/login/Login/Action!ljo_linkMenu.redirectApprovedProductListLink"
-    },
-    {
-      "label": "Technical Bulletins",
-      "url": "https://www.endeavourenergy.com.au/asp/webengine/au/com/ee/asp/TechnicalBulletins/TechnicalBulletins"
-    },
-    {
-      "label": "Public Lighting Pricelist",
-      "url": "http://www.endeavourenergy.com.au/wps/wcm/connect/bd23b16f-9599-4951-bfba-070e1db79b98/EE+Public+Lighting+Pricing+FY2019-20+R02.pdf?MOD=AJPERES"
-    },
-    {
-      "label": "NOCC Letter",
-      "url": "https://www.endeavourenergy.com.au/NOCC/RevisedNOCC_2019-20_R03.xlsm"
-    }
-  ],
+  "links": [],
   "widgetOnScreen": {
     "widgets": [
       {
@@ -119,8 +94,7 @@
         },
         "version": "2.14",
         "id": "widgets_Scalebar_Widget_24",
-        "name": "Scalebar",
-        "config": "configs/Scalebar/config_widgets_Scalebar_Widget_24.json"
+        "name": "Scalebar"
       },
       {
         "uri": "widgets/Search/Widget",
@@ -147,22 +121,6 @@
       },
       {
         "position": {
-          "left": 45,
-          "top": 45,
-          "width": 400,
-          "height": 410,
-          "relativeTo": "map"
-        },
-        "placeholderIndex": 1,
-        "id": "_27",
-        "name": "BasemapGallery",
-        "version": "2.14",
-        "closeable": true,
-        "uri": "widgets/BasemapGallery/Widget",
-        "config": "configs/BasemapGallery/config__27.json"
-      },
-      {
-        "position": {
           "left": 95,
           "top": 45,
           "width": 380,
@@ -170,19 +128,36 @@
           "relativeTo": "map"
         },
         "placeholderIndex": 1,
-        "id": "_28",
-        "version": "2.14",
+        "id": "_27",
+        "name": "Streetview",
+        "version": "1.0",
         "closeable": true,
-        "uri": "widgets/Print/Widget",
-        "name": "Print",
-        "config": "configs/Print/config__28.json",
-        "openAtStart": false
+        "uri": "widgets/Streetview/Widget",
+        "config": "configs/Streetview/config__27.json",
+        "label": "Streetview_2"
       },
       {
         "position": {
           "left": 145,
           "top": 45,
           "width": 380,
+          "height": 410,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_28",
+        "version": "2.8",
+        "closeable": true,
+        "uri": "widgets/eBasemapGallery/Widget",
+        "name": "eBasemapGallery",
+        "label": "Enhanced Basemap Gallery_2",
+        "config": "configs/eBasemapGallery/config__28.json"
+      },
+      {
+        "position": {
+          "left": 45,
+          "top": 45,
+          "width": 400,
           "height": 410,
           "relativeTo": "map"
         },
@@ -204,14 +179,13 @@
         "version": "2.14",
         "id": "widgets_OverviewMap_Widget_30",
         "name": "OverviewMap",
-        "config": "configs/OverviewMap/config_widgets_OverviewMap_Widget_30.json",
-        "visible": false
+        "config": "configs/OverviewMap/config_widgets_OverviewMap_Widget_30.json"
       },
       {
         "uri": "widgets/MyLocation/Widget",
         "position": {
           "left": 7,
-          "top": 115,
+          "top": 110,
           "relativeTo": "map"
         },
         "version": "2.14",
@@ -236,8 +210,7 @@
         },
         "version": "2.14",
         "id": "widgets_Splash_Widget_33",
-        "name": "Splash",
-        "config": "configs/Splash/config_widgets_Splash_Widget_33.json"
+        "name": "Splash"
       },
       {
         "uri": "widgets/ZoomSlider/Widget",
@@ -254,7 +227,7 @@
         "uri": "widgets/ExtentNavigate/Widget",
         "visible": false,
         "position": {
-          "top": 155,
+          "top": 149,
           "left": 7,
           "relativeTo": "map"
         },
@@ -291,22 +264,12 @@
       "bottom": 24,
       "left": 55
     },
-    "itemId": "d9ccf84c3bb64819ac5b5aa6ea16d443",
-    "mapOptions": {
-      "extent": {
-        "xmin": 16586637.159864828,
-        "ymin": -4181369.217392192,
-        "xmax": 16936718.749410767,
-        "ymax": -3897634.968397755,
-        "spatialReference": {
-          "wkid": 102100
-        }
-      }
-    },
+    "itemId": "7b743891743d4bed938545135b0268d8",
+    "mapOptions": {},
     "id": "map",
     "portalUrl": "https://endeavour.maps.arcgis.com",
     "appProxy": {
-      "mapItemId": "d9ccf84c3bb64819ac5b5aa6ea16d443",
+      "mapItemId": "7b743891743d4bed938545135b0268d8",
       "proxyItems": []
     },
     "mapRefreshInterval": {
@@ -339,29 +302,13 @@
         "index": 3
       },
       {
-        "name": "Streetview",
-        "version": "1.0",
-        "uri": "widgets/Streetview/Widget",
-        "config": "configs/Streetview/config_widgets_Streetview_Widget_38.json",
-        "index": 4,
-        "id": "widgets_Streetview_Widget_38"
-      },
-      {
-        "name": "eBasemapGallery",
-        "version": "2.8",
-        "uri": "widgets/eBasemapGallery/Widget",
-        "config": "configs/eBasemapGallery/config_widgets_eBasemapGallery_Widget_39.json",
-        "index": 5,
-        "id": "widgets_eBasemapGallery_Widget_39"
-      },
-      {
         "name": "CADExport",
         "version": "1.0.0",
-        "icon": "configs\\CADExport\\icon_widgets_CADExport_Widget_40.png",
+        "icon": "configs\\CADExport\\icon_widgets_CADExport_Widget_37.png",
         "uri": "widgets/CADExport/Widget",
-        "config": "configs/CADExport/config_widgets_CADExport_Widget_40.json",
-        "index": 7,
-        "id": "widgets_CADExport_Widget_40"
+        "index": 4,
+        "id": "widgets_CADExport_Widget_37",
+        "config": "configs/CADExport/config_widgets_CADExport_Widget_37.json"
       }
     ],
     "groups": []
@@ -378,7 +325,7 @@
             "height": 44,
             "relativeTo": "browser"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "themes/TabTheme/widgets/Footer/Widget",
@@ -389,7 +336,7 @@
             "height": 0,
             "relativeTo": "browser"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "themes/TabTheme/widgets/SidebarController/Widget",
@@ -399,7 +346,7 @@
             "bottom": 0,
             "relativeTo": "browser"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/HomeButton/Widget",
@@ -407,7 +354,7 @@
             "left": 7,
             "top": 75
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/Scalebar/Widget",
@@ -416,7 +363,7 @@
             "bottom": 40,
             "relativeTo": "map"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/Search/Widget",
@@ -424,7 +371,7 @@
             "left": 45,
             "top": 5
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/Coordinate/Widget",
@@ -433,7 +380,7 @@
             "bottom": 20,
             "relativeTo": "map"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "position": {
@@ -465,16 +412,16 @@
             "right": 0,
             "bottom": 0
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/MyLocation/Widget",
           "inPanel": false,
           "position": {
             "left": 7,
-            "top": 115
+            "top": 110
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/AttributeTable/Widget",
@@ -482,7 +429,7 @@
             "bottom": 0,
             "relativeTo": "map"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/Splash/Widget",
@@ -490,7 +437,7 @@
           "position": {
             "relativeTo": "browser"
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/ZoomSlider/Widget",
@@ -499,16 +446,16 @@
             "top": 5,
             "left": 7
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/ExtentNavigate/Widget",
           "visible": false,
           "position": {
-            "top": 155,
+            "top": 149,
             "left": 7
           },
-          "version": "2.13"
+          "version": "2.9"
         },
         {
           "uri": "widgets/FullScreen/Widget",
@@ -517,7 +464,7 @@
             "right": 8,
             "top": 8
           },
-          "version": "2.13"
+          "version": "2.9"
         }
       ]
     },
@@ -560,5 +507,5 @@
     "settings": {}
   },
   "logoLink": "http://",
-  "appItemId": "b03edc07a23745b7ad967253fa81ba92"
+  "appItemId": "5334d714999f4ea8ab8613439e3ab56c"
 }
