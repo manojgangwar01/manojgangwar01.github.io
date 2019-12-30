@@ -1,0 +1,198 @@
+{
+  "allPlaceholder": "",
+  "showInfoWindowOnSelect": true,
+  "sources": [
+    {
+      "layerId": "EEArea16_7376",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/4",
+      "name": "HV Switching Stations",
+      "placeholder": "",
+      "searchFields": [
+        "ASSET_NUM",
+        "FEEDER_NUM",
+        "OPERATING_VOLTAGE"
+      ],
+      "displayField": "ASSET_NUM",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 10,
+      "maxResults": 10,
+      "type": "query"
+    },
+    {
+      "layerId": "EEArea16_7739",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/0",
+      "name": "Supply Point",
+      "placeholder": "",
+      "searchFields": [
+        "G3E_FID",
+        "FEEDER_NUM",
+        "ASSET_NUM"
+      ],
+      "displayField": "ASSET_NUM",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 10,
+      "maxResults": 10,
+      "type": "query"
+    },
+    {
+      "layerId": "EEArea16_2808",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/5",
+      "name": "Substation",
+      "placeholder": "",
+      "searchFields": [
+        "Plant_Number",
+        "ASSET_NUM",
+        "FAULT_LEVEL",
+        "FEEDER_NUM",
+        "Project",
+        "Drawing"
+      ],
+      "displayField": "Plant_Number",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 15,
+      "maxResults": 15,
+      "type": "query"
+    },
+    {
+      "layerId": "EEArea16_5267",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/3",
+      "name": "Zone Substation",
+      "placeholder": "",
+      "searchFields": [
+        "SUBSTATION_NAME",
+        "Plant_Number"
+      ],
+      "displayField": "SUBSTATION_NAME",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 10,
+      "maxResults": 10,
+      "type": "query"
+    },
+    {
+      "layerId": "EEArea16_6493",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/1",
+      "name": "TR Substation",
+      "placeholder": "",
+      "searchFields": [
+        "SUBSTATION_NAME",
+        "ASSET_NUM"
+      ],
+      "displayField": "SUBSTATION_NAME",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 10,
+      "maxResults": 10,
+      "type": "query"
+    },
+    {
+      "layerId": "EEArea16_1583",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/2",
+      "name": "TR Switching Stations",
+      "placeholder": "",
+      "searchFields": [
+        "G3E_FID",
+        "ASSET_NUM",
+        "FEEDER_NUM"
+      ],
+      "displayField": "ASSET_NUM",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 10,
+      "maxResults": 10,
+      "type": "query"
+    },
+    {
+      "layerId": null,
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/7",
+      "name": "Supports - Column",
+      "placeholder": "",
+      "searchFields": [
+        "Plant_Number",
+        "ASSET_NUM",
+        "Project",
+        "Drawing"
+      ],
+      "displayField": "Plant_Number",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": null,
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/8",
+      "name": "Network - Pole",
+      "placeholder": "",
+      "searchFields": [
+        "Plant_Number",
+        "ASSET_NUM",
+        "Drawing",
+        "Project"
+      ],
+      "displayField": "Plant_Number",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "EEArea16_9977",
+      "url": "https://services.arcgis.com/Gbs1D7TkFBVkx0Nz/arcgis/rest/services/EEArea16/FeatureServer/6",
+      "name": "Streetlight",
+      "placeholder": "",
+      "searchFields": [
+        "Plant_Number",
+        "ASSET_NUM",
+        "Drawing",
+        "Project",
+        "CAP_Number"
+      ],
+      "displayField": "Plant_Number",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
+      "name": "ArcGIS World Geocoding Service",
+      "singleLineFieldName": "SingleLine",
+      "placeholder": "Find address or place",
+      "countryCode": "AU",
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "searchInCurrentMapExtent": false,
+      "enableLocalSearch": true,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000,
+      "type": "locator"
+    }
+  ]
+}
