@@ -1180,7 +1180,9 @@ function(
                    url: target_url,                   
                    content:{f: "json"}
         },{
-            usePost: true              
+            disableIdentityLookup : false,
+            usePost: true,
+            useProxy: true              
               });
               layerRequest.then(
                 function(response) {
