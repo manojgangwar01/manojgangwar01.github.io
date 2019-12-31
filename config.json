@@ -21,10 +21,6 @@
           "mainBackgroundColor": "#bed000"
        }
     },   
-    "httpProxy" :{
-      "useProxy": true,
-      "alwaysUseProxy": false
-    },
     "portalUrl": "https://endeavour.maps.arcgis.com",
     "appId": "gonLgKbH7W6NQX4t",
     "authorizedCrossOriginDomains": [
