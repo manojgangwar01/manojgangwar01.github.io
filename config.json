@@ -20,13 +20,14 @@
        "customStyles": {
           "mainBackgroundColor": "#bed000"
        }
-    },
+    },   
     "portalUrl": "https://endeavour.maps.arcgis.com",
     "appId": "gonLgKbH7W6NQX4t",
     "authorizedCrossOriginDomains": [
        "148.195.183.241:8080",
        "148.195.183.241:8080",
-       "148.195.183.241:8080"
+       "148.195.183.241:8080",
+       "http://GDFM02VP:8080"
     ],
     "title": "<div class=\"attribute-custom-style\"><font face=\"Arial\">Endeavour Energy Network<\/font><\/div>",
     "subtitle": "<div class=\"attribute-custom-style\"><br /><\/div>",
