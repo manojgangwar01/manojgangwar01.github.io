@@ -23,7 +23,7 @@
     },   
     "httpProxy" :{
       "useProxy": true,
-      "alwaysUseProxy": true
+      "alwaysUseProxy": false
     },
     "portalUrl": "https://endeavour.maps.arcgis.com",
     "appId": "gonLgKbH7W6NQX4t",
