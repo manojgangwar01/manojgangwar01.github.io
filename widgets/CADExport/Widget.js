@@ -1177,12 +1177,10 @@ function(
         
         //run_ajax(target_url);
         var layerRequest = esriRequest({
-                   url: target_url,
-                   usePost : true,
-                   content:{
-                    f: "json"        
-                },
-                handleAs: "json"                
+                   url: target_url,                   
+                   content:{f: "json"}
+        },{
+            usePost: true              
               });
               layerRequest.then(
                 function(response) {
