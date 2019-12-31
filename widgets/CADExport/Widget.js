@@ -1181,8 +1181,7 @@ function(
                    content:{
                     f: "json"        
                 },
-                handleAs: "json",
-                callbackParamName: "callback"
+                handleAs: "json"                
               });
               layerRequest.then(
                 function(response) {
