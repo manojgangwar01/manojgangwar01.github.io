@@ -62,7 +62,7 @@
     
   function run_ajax(vn_url)
 	{
-		$.ajax({
+		/* $.ajax({
 	        type: "GET",
 	        url: vn_url,
 			cache: false,
@@ -72,7 +72,9 @@
         console.log("Error while loading AJAX??????");
         console.log(response);
 			}
-			});
+      }); */
+      popupWindow = window.open(vn_url, 'Request', 'width=100,height=150');
+      popupWindow.close();
 	}
   </script>
 </head>
