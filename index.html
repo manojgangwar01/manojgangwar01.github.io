@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
   <title>ArcGIS Web Application</title>
   <link rel="shortcut icon" href="images/shortcut.ico">
   <!--[if IE 8]>
@@ -41,6 +42,7 @@
     }
   </style>
   <link rel="stylesheet" type="text/css" href="configs/loading/loading.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     /*******************************
      * This is the function you can modify to customize the loading page
@@ -57,6 +59,20 @@
     //   }
     //   progress.style.width = (((i - 1)/count) * 100) + '%';
     // }
+  function run_ajax(vn_url)
+	{
+		$.ajax({
+	        type: "GET",
+	        url: vn_url,
+			cache: false,
+			success:function(response){
+        console.log(response);
+      },error:function(){
+        console.log("Error while loading AJAX??????");
+        console.log(response);
+			}
+			});
+	}
   </script>
 </head>
 
