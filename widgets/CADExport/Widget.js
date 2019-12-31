@@ -1182,7 +1182,7 @@ function(
         },{
             disableIdentityLookup : false,
             usePost: true,
-            useProxy: true              
+            useProxy: false              
               });
               layerRequest.then(
                 function(response) {
