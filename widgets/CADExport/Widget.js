@@ -1178,7 +1178,7 @@ function(
         //run_ajax(target_url);
         var layerRequest = esriRequest({
                    url: target_url,
-                   type : "GET",
+                   usePost : true,
                    content:{
                     f: "json"        
                 },
