@@ -31,6 +31,7 @@
        "https://manojgangwar01.github.io/"
 
     ],
+    "usePost": true,
     "title": "<div class=\"attribute-custom-style\"><font face=\"Arial\">Endeavour Energy Network<\/font><\/div>",
     "subtitle": "<div class=\"attribute-custom-style\"><br /><\/div>",
     "keepAppState": true,
