@@ -1130,6 +1130,11 @@ function(
                 
             var curr_graph = this._editorConfig["graphicCurrent"];
             var geom = this._editorConfig["graphicCurrent"].geometry;
+            var outSpatialReference = new SpatialReference({
+                wkid: 7856 //Sphere_Sinusoidal
+               });
+            geom = projection.project(geom,outSpatialReference);
+            
            // var area = (wkid == 4326 || wkid == 3857 || wkid == 102100) ? geometryEngine.geodesicArea(geom, this._editorConfig["graphicCurrent"].measure.areaUnit) : geom.planarArea(geometry, this._editorConfig["graphicCurrent"].measure.areaUnit);
             //lets cook up data for Cad Export
             //this.showMessage("comes");
