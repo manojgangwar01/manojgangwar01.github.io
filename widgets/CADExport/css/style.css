@@ -20,6 +20,7 @@
     margin-bottom: 12px;
     padding-right: 3px;
     padding-bottom: 10px;
+    display: none;
 }
 .jimu-widget-edraw .area-units-tip {
     height: 30px;
