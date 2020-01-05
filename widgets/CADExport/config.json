@@ -20,14 +20,15 @@
 		]
 	},
 	"distanceUnits" : [{
-			"unit" : "KILOMETERS",
-			"abbr" : "km"
+			
+			"unit" : "METERS",
+			"abbr" : "m"			
 		}, {
 			"unit" : "MILES",
 			"abbr" : "mi"
 		}, {
-			"unit" : "METERS",
-			"abbr" : "m"
+			"unit" : "KILOMETERS",
+			"abbr" : "km"
 		}, {
 			"unit" : "NAUTICAL_MILES",
 			"abbr" : "nm"
@@ -40,8 +41,8 @@
 		}
 	],
 	"areaUnits" : [{
-			"unit" : "SQUARE_KILOMETERS",
-			"abbr" : "sq km"
+		    "unit" : "SQUARE_METERS",
+		    "abbr" : "sq m"
 		}, {
 			"unit" : "SQUARE_MILES",
 			"abbr" : "sq mi"
@@ -52,8 +53,9 @@
 			"unit" : "HECTARES",
 			"abbr" : "ha"
 		}, {
-			"unit" : "SQUARE_METERS",
-			"abbr" : "sq m"
+			"unit" : "SQUARE_KILOMETERS",
+			"abbr" : "sq km"
+			
 		}, {
 			"unit" : "SQUARE_FEET",
 			"abbr" : "sq ft"
@@ -62,7 +64,7 @@
 			"abbr" : "sq yd"
 		}
 	],
-	"measureEnabledByDefault" : false,
+	"measureEnabledByDefault" : true,
 	"measurePolygonLabel" : "{{area}} {{areaUnit}}    {{length}} {{lengthUnit}}",
 	"measurePolylineLabel" : "{{length}} {{lengthUnit}}",
 	"defaultSymbols":{
