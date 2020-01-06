@@ -1,7 +1,7 @@
 {
 	"exportFileName" : "",
 	"confirmOnDelete" : true,
-	"allowLocalStorage" : true,
+	"allowLocalStorage" : false,
 	"localStorageKey" : false,
 	"drawPlus" : {
 		"fontFamilies" : [{

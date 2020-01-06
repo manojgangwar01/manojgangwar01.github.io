@@ -48,7 +48,7 @@
   "exportFileName": "Export file name",
   "confirmOnDelete": true,
   "listShowUpAndDownButtons": false,
-  "allowLocalStorage": true,
+  "allowLocalStorage": false,
   "localStorageKey": false,
   "drawPlus": {
     "fontFamilies": [
