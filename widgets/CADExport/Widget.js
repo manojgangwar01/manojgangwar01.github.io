@@ -1241,9 +1241,14 @@ function(
                
          
          
-         
+        var val = "off";
         
-        var target_url = "http://GDFM02VP:8080/fmejobsubmitter/test/WebApp_CAD_Export_v01_.fmw?email=" + this.emailField.value + "&ProjectNumber=" +this.projectField.value+ "&DrawingNumber=" +this.drawingField.value+ "&ProjectDesc=" +this.descriptionField.value+ "&fullName=" +this.nameField.value+ "&Comments=" +this.commentsField.value+"&Shape__Area=" +this.AreaValidation(geom, curr_graph) + "&UGDetails=" +this.UGDetailsField.checked;//+ //"&_coordinates=" +geom.rings+ "&opt_showresult=true&opt_servicemode=sync&token=c6ad36b0484ecab087a078b03023cb6f7adf90dd";
+        if (this.UGDetailsField.checked == true)
+               {
+                   val = "on";
+               }
+        
+        var target_url = "http://GDFM02VP:8080/fmejobsubmitter/test/WebApp_CAD_Export_v01_.fmw?email=" + this.emailField.value + "&ProjectNumber=" +this.projectField.value+ "&DrawingNumber=" +this.drawingField.value+ "&ProjectDesc=" +this.descriptionField.value+ "&fullName=" +this.nameField.value+ "&Comments=" +this.commentsField.value+"&Shape__Area=" +this.AreaValidation(geom, curr_graph) + "&UGDetails=" +val;//+ //"&_coordinates=" +geom.rings+ "&opt_showresult=true&opt_servicemode=sync&token=c6ad36b0484ecab087a078b03023cb6f7adf90dd";
         
         this.showMessage(target_url);
         return;
@@ -1281,9 +1286,15 @@ function(
             //this.setMode("list");
         },
         editorOnClickResetCancelButon: function() {
+            //manoj
+           // this._removeGraphic(this._editorConfig["graphicCurrent"]);
+            //this.editorResetGraphic();
+            this.descriptionField.value = ''; 
+            this.projectField.value = '';
+            this.drawingField.value = '';
+            this.UGDetailsField.checked = false;
+            this.commentsField.value = '';
             
-            this._removeGraphic(this._editorConfig["graphicCurrent"]);
-            this.editorResetGraphic();
             
             //this.setMode("edit");
         },
