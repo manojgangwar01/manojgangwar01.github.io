@@ -1112,7 +1112,7 @@ function(
                 {
                     //this.showMessage("Email is mandatory.Please fill email in your ArcGIS Online Account");
                     //return;
-                    err_msg = "Email (Please fill email in your ArcGIS Online Account) ";
+                    err_msg = "'Email' (Please fill email in your ArcGIS Online Account) ";
                     flag = true;
 
                 }
@@ -1124,12 +1124,12 @@ function(
                     flag = true;
                     if (err_msg == "")
                         {
-                            err_msg = "Project Number ";
+                            err_msg = "'Project Number' ";
                         }
                     else
                         {
                             multi_fld = true;
-                            err_msg += ", Project Number ";
+                            err_msg += ", 'Project Number' ";
                         }
 
                 }
@@ -1140,12 +1140,12 @@ function(
                     flag = true;
                     if (err_msg == "")
                         {
-                            err_msg = "Drawing Number ";
+                            err_msg = "'Drawing Number' ";
                         }
                     else
                         {
                             multi_fld = true;
-                            err_msg += ", Drawing Number ";
+                            err_msg += ", 'Drawing Number' ";
                         }
                 }
                 if  (!this.descriptionField.value.match(/\S/))
@@ -1155,12 +1155,12 @@ function(
                     flag = true;
                     if (err_msg == "")
                         {
-                            err_msg = "Project Description ";
+                            err_msg = "'Project Description' ";
                         }
                     else
                         {
                             multi_fld = true;
-                            err_msg += ", Project Description ";
+                            err_msg += ", 'Project Description' ";
                         }
                 }
 
@@ -1179,7 +1179,13 @@ function(
             
             //manoj
             this._editorConfig["graphicCurrent"].attributes["name"] = this.nameField.value;
+            this._editorConfig["graphicCurrent"].attributes["email"] = this.emailField.value;
+            this._editorConfig["graphicCurrent"].attributes["projectnumber"] = this.projectField.value;
+            this._editorConfig["graphicCurrent"].attributes["drawingnumber"] = this.drawingField.value;
             this._editorConfig["graphicCurrent"].attributes["description"] = this.descriptionField.value;
+            this._editorConfig["graphicCurrent"].attributes["ug"] = this.UGDetailsField.value;
+            this._editorConfig["graphicCurrent"].attributes["comment"] = this.commentsField.value;
+
                 
             var curr_graph = this._editorConfig["graphicCurrent"];
             var geom = this._editorConfig["graphicCurrent"].geometry;
@@ -1231,7 +1237,10 @@ function(
             val = "on"
         }
         
-        var target_url = "http://GDFM02VP:8080/fmejobsubmitter/test/WebApp_CAD_Export_v01_.fmw?email=" + this.emailField.value + "&ProjectNumber=" +this.projectField.value+ "&DrawingNumber=" +this.drawingField.value+ "&ProjectDesc=" +this.descriptionField.value+ "&fullName=" +this.nameField.value+ "&Comments=" +this.commentsField.value+"&Shape__Area=" +this.AreaValidation(geom, curr_graph) + "&UGDetails=" +val+ "&_coordinates=" +geom.rings+ "&opt_showresult=true&opt_servicemode=sync&token=c6ad36b0484ecab087a078b03023cb6f7adf90dd";
+        var target_url = "http://GDFM02VP:8080/fmejobsubmitter/test/WebApp_CAD_Export_v01_.fmw?email=" + this.emailField.value + "&ProjectNumber=" +this.projectField.value+ "&DrawingNumber=" +this.drawingField.value+ "&ProjectDesc=" +this.descriptionField.value+ "&fullName=" +this.nameField.value+ "&Comments=" +this.commentsField.value+"&Shape__Area=" +this.AreaValidation(geom, curr_graph) + "&UGDetails=" +val;//+ //"&_coordinates=" +geom.rings+ "&opt_showresult=true&opt_servicemode=sync&token=c6ad36b0484ecab087a078b03023cb6f7adf90dd";
+        
+        this.showMessage(target_url);
+        return;
         
         run_ajax(target_url);
         /* var layerRequest = esriRequest({
