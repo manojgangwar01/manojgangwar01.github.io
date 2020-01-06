@@ -696,13 +696,19 @@ function(
         },
 
         editorPrepareForAdd: function(symbol) {
+            
+            //manoj
             this._editorConfig["graphicCurrent"] = false;
 
             this.editorSymbolChooserConfigure(symbol);
 
             this.nameField.value = this.username;
             this.emailField.value = this.email;
-            this.descriptionField.value = '';
+            this.descriptionField.value = ''; 
+            this.projectField.value = '';
+            this.drawingField.value = '';
+            this.UGDetailsField.checked = false;
+            this.commentsField.value = '';
 
             this.editorTitle.innerHTML = this.nls.addDrawTitle;
             this.editorFooterEdit.style.display = 'none';
@@ -728,6 +734,8 @@ function(
         },
 
         editorPrepareForEdit: function(graphic) {
+            
+            //manoj
             this._editorConfig["graphicCurrent"] = graphic;
 
             this.nameField.value = graphic.attributes["name"];
@@ -1231,13 +1239,11 @@ function(
  
          // this.showMessage(layerRequest);
                
-         var val = "off"
-         if (this.UGDetailsField.value == true )
-         {
-            val = "on"
-        }
+         
+         
+         
         
-        var target_url = "http://GDFM02VP:8080/fmejobsubmitter/test/WebApp_CAD_Export_v01_.fmw?email=" + this.emailField.value + "&ProjectNumber=" +this.projectField.value+ "&DrawingNumber=" +this.drawingField.value+ "&ProjectDesc=" +this.descriptionField.value+ "&fullName=" +this.nameField.value+ "&Comments=" +this.commentsField.value+"&Shape__Area=" +this.AreaValidation(geom, curr_graph) + "&UGDetails=" +val;//+ //"&_coordinates=" +geom.rings+ "&opt_showresult=true&opt_servicemode=sync&token=c6ad36b0484ecab087a078b03023cb6f7adf90dd";
+        var target_url = "http://GDFM02VP:8080/fmejobsubmitter/test/WebApp_CAD_Export_v01_.fmw?email=" + this.emailField.value + "&ProjectNumber=" +this.projectField.value+ "&DrawingNumber=" +this.drawingField.value+ "&ProjectDesc=" +this.descriptionField.value+ "&fullName=" +this.nameField.value+ "&Comments=" +this.commentsField.value+"&Shape__Area=" +this.AreaValidation(geom, curr_graph) + "&UGDetails=" +this.UGDetailsField.checked;//+ //"&_coordinates=" +geom.rings+ "&opt_showresult=true&opt_servicemode=sync&token=c6ad36b0484ecab087a078b03023cb6f7adf90dd";
         
         this.showMessage(target_url);
         return;
@@ -1418,10 +1424,15 @@ function(
            
             
             this.editorEnableMapPreview(false);
-
+                //manoj
             graphic.attributes = {
                 "name": this.nameField.value,
-                "description": this.descriptionField.value
+                "description": this.descriptionField.value,             
+                "email": this.emailField.value,
+                "projectnumber": this.projectField.value,
+                "drawingnumber": this.drawingField.value,
+                "ug": this.UGDetailsField.value,
+                "comment": this.commentsField.value
             }
 
             if (geometry.type === 'extent') {
@@ -1909,8 +1920,14 @@ function(
             }
 
             return new Graphic(point, textSymbol, {
+                //manoj
                 "name": text,
-                "description": ""
+                "description": "",                           
+                "email": "",
+                "projectnumber": "",
+                "drawingnumber": "",
+                "ug": "",
+                "comment": ""
             }, null);
 
         },
@@ -2166,10 +2183,11 @@ function(
             })(this);
 
         },
-
+       
         _initDrawingPopupAndClick: function() {
-            //Set popup template
-            var infoTemplate = new esri.InfoTemplate("${name}", "${description}");
+            
+            //Set popup template manoj
+            var infoTemplate = new esri.InfoTemplate("${name}", "${description}","${email}","${projectnumber}","${drawingnumber}","${ug}","${comment}");
             this.drawBox.drawLayer.setInfoTemplate(infoTemplate);
 
             //Set draw click
