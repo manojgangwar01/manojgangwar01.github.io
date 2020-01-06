@@ -112,7 +112,7 @@ define({
 		projectNumber: 'Project Number',
 		drawingNumber: 'Drawing Number',
 		commentsField: 'Comments',
-		UGDetails: 'UnderGround Details'
+		UGDetails: 'UG Details'
 	}),
 	"ar" : 1,
 	"cs" : 1,
