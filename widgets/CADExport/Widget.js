@@ -1104,24 +1104,77 @@ function(
         ///////////////////////// EDIT METHODS ///////////////////////////////////////////////////////////
         editorOnClickEditSaveButon: function() {            
             
+            var flag = false;
+            var multi_fld = false;
+            var err_msg = "";
+
             if  (!this.emailField.value.match(/\S/))
                 {
-                    this.showMessage("Email is mandatory.Please fill email in your ArcGIS Online Account");
-                    return;
+                    //this.showMessage("Email is mandatory.Please fill email in your ArcGIS Online Account");
+                    //return;
+                    err_msg = "Email (Please fill email in your ArcGIS Online Account) ";
+                    flag = true;
 
                 }
 
             if  (!this.projectField.value.match(/\S/))
                 {
-                    this.showMessage("Project Number is mandatory.");
-                    return;
+                    //this.showMessage("Project Number is mandatory.");
+                    //return;
+                    flag = true;
+                    if (err_msg == "")
+                        {
+                            err_msg = "Project Number ";
+                        }
+                    else
+                        {
+                            multi_fld = true;
+                            err_msg += ", Project Number ";
+                        }
 
                 }
             if  (!this.drawingField.value.match(/\S/))
                 {
-                    this.showMessage("Drawing Number is mandatory.");
-                    return;
+                    //this.showMessage("Drawing Number is mandatory.");
+                    //return;
+                    flag = true;
+                    if (err_msg == "")
+                        {
+                            err_msg = "Drawing Number ";
+                        }
+                    else
+                        {
+                            multi_fld = true;
+                            err_msg += ", Drawing Number ";
+                        }
+                }
+                if  (!this.descriptionField.value.match(/\S/))
+                {
+                    //this.showMessage("Drawing Number is mandatory.");
+                    //return;
+                    flag = true;
+                    if (err_msg == "")
+                        {
+                            err_msg = "Project Description ";
+                        }
+                    else
+                        {
+                            multi_fld = true;
+                            err_msg += ", Project Description ";
+                        }
+                }
 
+                if (flag == true)
+                {
+                    if (multi_fld == true)
+                    {
+                    this.showMessage(err_msg + " Fields are mandatory");
+                    }
+                    else
+                    {
+                        this.showMessage(err_msg + " Field is mandatory");  
+                    }
+                    return;
                 }
             
             //manoj
