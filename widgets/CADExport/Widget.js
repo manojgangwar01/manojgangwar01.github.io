@@ -1176,11 +1176,11 @@ function(
                 {
                     if (multi_fld == true)
                     {
-                    this.showMessage(err_msg + " Fields are mandatory",'error');
+                    this.showMessage(err_msg + " fields are mandatory",'error');
                     }
                     else
                     {
-                        this.showMessage(err_msg + " Field is mandatory",'error');  
+                        this.showMessage(err_msg + " field is mandatory",'error');  
                     }
                     return;
                 }
@@ -1190,7 +1190,7 @@ function(
 
             if (this._editorConfig["graphicCurrent"] == false)
             {
-                this.showMessage("Please draw CAD extract area first" , 'warning');
+                this.showMessage("CAD extract area missing.Please draw area before submitting job. " , 'warning');
                 return;
 
             }    
