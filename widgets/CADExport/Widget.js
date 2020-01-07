@@ -1176,11 +1176,11 @@ function(
                 {
                     if (multi_fld == true)
                     {
-                    this.showMessage(err_msg + " Fields are mandatory");
+                    this.showMessage(err_msg + " Fields are mandatory",'error');
                     }
                     else
                     {
-                        this.showMessage(err_msg + " Field is mandatory");  
+                        this.showMessage(err_msg + " Field is mandatory",'error');  
                     }
                     return;
                 }
@@ -1281,10 +1281,18 @@ function(
          
 
 
+         this.descriptionField.value = ''; 
+         this.projectField.value = '';
+         this.drawingField.value = '';
+         this.UGDetailsField.checked = false;
+         this.commentsField.value = '';
+
+
+         this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
+
          this._removeGraphics(this._editorConfig["graphicCurrent"]);
          this.editorResetGraphic();
-
-         this.showMessage("Drwaing is succesfully submitted. Shortly you will recevive email contaning details",'information');
+         this.editorActivateGeometryEdit(false);
         },
         editorOnClickEditCancelButon: function() {
             
