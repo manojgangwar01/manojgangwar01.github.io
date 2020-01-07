@@ -82,7 +82,7 @@ define({
 		exportLabel : "Export selected drawings",
 		noSelection : "No drawings selected",
 		saveButton : "Send",
-		resetButton : "Reset",
+		resetButton : "Reset Fields",
 		cancelButton : "Cancel",
 		textAngle : 'Text Angle',
 		fontName : 'Font Name',

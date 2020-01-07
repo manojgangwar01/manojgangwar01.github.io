@@ -1293,8 +1293,8 @@ function(
 
          this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
 
-         this._removeGraphics(this._editorConfig["graphicCurrent"]);
-         //this.editorResetGraphic();
+         this._editorConfig["graphicCurrent"] = false;
+                 //this.editorResetGraphic();
          this.editorActivateGeometryEdit(false);
          this.setMode("add1");
 
@@ -1501,6 +1501,7 @@ function(
 
                 this.showMessage("Exceeds the maximum area allowed (16,000,000 m2). Please draw smaller area",'error');
                 this.editorOnClickEditCancelButon();
+                this.setMode("add1");
                 return;
 
             }
