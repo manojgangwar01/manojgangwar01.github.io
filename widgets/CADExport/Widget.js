@@ -1291,12 +1291,15 @@ function(
          this.commentsField.value = '';
 
 
-         this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
-
+         
+         this._removeGraphic(this._editorConfig["graphicCurrent"]);
          this._editorConfig["graphicCurrent"] = false;
-         this.editorResetGraphic();
+         //this.editorResetGraphic();
          this.editorActivateGeometryEdit(false);
          this.setMode("add1");
+
+         this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
+         
 
         },
         editorOnClickEditCancelButon: function() {
