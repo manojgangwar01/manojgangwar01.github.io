@@ -899,7 +899,7 @@ function(
         },
 
         editorMeasureConfigure: function(graphicIfUpdate, commonTypeIfAdd) {
-            this.measureSection.style.display = 'block';
+            this.measureSection.style.display = 'none';
 
             //Manage if fields are shown or not
             if (graphicIfUpdate && graphicIfUpdate.measureParent) {
@@ -1299,7 +1299,7 @@ function(
          this.setMode("add1");
 
          this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
-         
+
 
         },
         editorOnClickEditCancelButon: function() {
