@@ -1291,7 +1291,7 @@ function(
          this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
 
          this._removeGraphics(this._editorConfig["graphicCurrent"]);
-         this.editorResetGraphic();
+         //this.editorResetGraphic();
          this.editorActivateGeometryEdit(false);
         },
         editorOnClickEditCancelButon: function() {
