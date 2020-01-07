@@ -88,7 +88,7 @@ function(
 
             switch (name) {
                 case 'add1':
-                    this.showMessage("add1");
+                    
                     this.setMenuState('add');
 
                     this._editorConfig["graphicCurrent"] = false;
@@ -102,7 +102,7 @@ function(
 
                     break;
                 case 'add2':
-                    this.showMessage("add2");
+                   
                     this.setMenuState('add', ['add']);
 
                     this._editorConfig["graphicCurrent"] = false;
@@ -116,7 +116,7 @@ function(
 
                     break;
                 case 'edit':
-                    this.showMessage("edit");
+                    
                     this.setMenuState('edit', ['edit']);
                     if (this._editorConfig["graphicCurrent"]) {
                         //prepare editor
@@ -1296,6 +1296,7 @@ function(
          this._removeGraphics(this._editorConfig["graphicCurrent"]);
          //this.editorResetGraphic();
          this.editorActivateGeometryEdit(false);
+         this.setMode("add1");
 
         },
         editorOnClickEditCancelButon: function() {
