@@ -1294,7 +1294,7 @@ function(
          this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
 
          this._editorConfig["graphicCurrent"] = false;
-                 //this.editorResetGraphic();
+         this.editorResetGraphic();
          this.editorActivateGeometryEdit(false);
          this.setMode("add1");
 
