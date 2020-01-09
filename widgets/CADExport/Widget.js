@@ -707,11 +707,11 @@ function(
 
             this.nameField.value = this.username;
             this.emailField.value = this.email;
-            this.descriptionField.value = ''; 
+            /* this.descriptionField.value = ''; 
             this.projectField.value = '';
             this.drawingField.value = '';
             this.UGDetailsField.checked = false;
-            this.commentsField.value = '';
+            this.commentsField.value = ''; */
 
             this.editorTitle.innerHTML = this.nls.addDrawTitle;
             this.editorFooterEdit.style.display = 'none';
@@ -1303,6 +1303,11 @@ function(
 
         },
         editorOnClickEditCancelButon: function() {
+            this.descriptionField.value = ''; 
+         this.projectField.value = '';
+         this.drawingField.value = '';
+         this.UGDetailsField.checked = false;
+         this.commentsField.value = '';
             
             this._removeGraphic(this._editorConfig["graphicCurrent"]);
             
@@ -1324,6 +1329,18 @@ function(
             
             //this.setMode("edit");
         },
+        editorOnClickResetCancelAreaButon: function() {
+            //manoj
+           // this._removeGraphic(this._editorConfig["graphicCurrent"]);
+           //this.editorResetGraphic();           
+            //this.setMode("edit");
+
+         this._removeGraphic(this._editorConfig["graphicCurrent"]);
+         //this.editorResetGraphic();
+         this.editorActivateGeometryEdit(false);
+         this.setMode("add1");
+        },
+
 
         editorResetGraphic: function() {
             if (this._editorConfig["graphicSaved"] && this._editorConfig["graphicCurrent"]) {

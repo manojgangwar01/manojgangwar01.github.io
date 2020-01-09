@@ -83,6 +83,7 @@ define({
 		noSelection : "No drawings selected",
 		saveButton : "Send",
 		resetButton : "Reset Fields",
+		resetArea : "Reset Area",
 		cancelButton : "Cancel",
 		textAngle : 'Text Angle',
 		fontName : 'Font Name',
