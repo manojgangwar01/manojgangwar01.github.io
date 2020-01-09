@@ -1304,7 +1304,7 @@ function(
 
         },
         editorOnClickEditCancelButon: function() {
-            this.descriptionField.value = ''; 
+        this.descriptionField.value = ''; 
          this.projectField.value = '';
          this.drawingField.value = '';
          this.UGDetailsField.checked = false;
@@ -1660,6 +1660,11 @@ function(
 
         editorOnClickAddCancelButon: function() {
             
+            this.descriptionField.value = ''; 
+         this.projectField.value = '';
+         this.drawingField.value = '';
+         this.UGDetailsField.checked = false;
+         this.commentsField.value = '';
             this._removeGraphic(this._editorConfig["graphicCurrent"]);
             this.setMode("add1");
             
