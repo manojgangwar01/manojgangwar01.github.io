@@ -30,6 +30,7 @@ define([
     'dojo/dom',
     'dijit/form/Select',
     'dijit/form/NumberSpinner',
+    'digit/form/Button',
     'libs/storejs/store',
     'esri/config',
     'esri/InfoTemplate',
@@ -60,7 +61,7 @@ define([
 ],
 function(
     declare, _WidgetsInTemplateMixin, BaseWidget,
-    Deferred, aspect, lang, on, html, has, Color, array, domConstruct, dom, Select, NumberSpinner, localStore,
+    Deferred, aspect, lang, on, html, has, Color, array, domConstruct, dom, Select, NumberSpinner,Button, localStore,
     esriConfig, InfoTemplate, Graphic, graphicsUtils, GraphicsLayer, Edit,
     esriUnits, SpatialReference, Polyline, Polygon, geometryEngine, projection,
     SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font,
