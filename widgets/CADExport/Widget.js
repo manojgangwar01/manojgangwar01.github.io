@@ -1520,7 +1520,7 @@ function(
             {
 
                 this.showMessage("Exceeds the maximum area allowed (16,000,000 m2). Please draw smaller area",'error');
-                this.editorOnClickEditCancelButon();
+                this.editorOnClickResetCancelAreaButon();
                 this.setMode("add1");
                 return;
 
