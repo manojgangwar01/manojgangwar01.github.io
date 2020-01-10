@@ -1298,7 +1298,7 @@ function(
          this.editorActivateGeometryEdit(false);
          this.setMode("add1");
 
-         this.showMessage("Drawing is successfully submitted. Shortly you will receive email containing details.",'information');
+         this.showMessage("Drawing is successfully submitted. Shortly you will receive email with job status details.",'information');
 
 
         },
