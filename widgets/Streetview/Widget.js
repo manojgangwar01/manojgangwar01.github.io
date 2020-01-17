@@ -11,7 +11,7 @@ function(declare,on, _WidgetsInTemplateMixin, BaseWidget,WidgetManager,PanelMana
     var handlerStreetView;
     
     var clazz = declare([BaseWidget,_WidgetsInTemplateMixin], {
-        templateString: '<div> <br /> <br />1. Click on the map, and Streetview will open for this location in a new window <br /> <br /><hr>' + '2. Click the "Cancel" button to de-activate the tool.. <br /><br />'+ '<br /> <input type="button" style="background-color: rgb(125,125,125)!important;"  class="jimu-btn" id="btnPict" value="Cancel" data-dojo-attach-event="click:_EarthClick"> <br /> <br /> <br /> </div> ',
+        templateString: '<div> <br /> <br /><b>1. Click on the map, and Streetview will open for this location in a new window <br /> <br /><hr>' + '2. Click Streetview Icon again to de-activate the tool.. <br /><br />'+ ' </div> ',
         
         onOpen: function(){
 
