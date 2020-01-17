@@ -1544,6 +1544,22 @@
              }
           },
           {
+            "position": {
+               "left": 195,
+               "top": 45,
+               "width": 380,
+               "height": 410,
+               "relativeTo": "map"
+            },
+            "placeholderIndex": 1,
+            "id": "_30",
+            "name": "AddData",
+            "version": "2.15",
+            "closeable": true,
+            "uri": "widgets/AddData/Widget"
+            
+         },
+          {
              "uri": "widgets/OverviewMap/Widget",
              "position": {
                 "right": 0,
